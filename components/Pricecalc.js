@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
-
+import {checkout} from "../checkout"
 
 
 function Pricecalc({price}) {
@@ -33,7 +33,16 @@ function getData (val){
      
      <button className=' text-sm text-white bg-red-400 px-4 py-2
        rounded-lg mt-5 cursor-pointer hover:scale-105 transform
-       transition duration-300 ease-out'>Checkout</button><br></br>
+       transition duration-300 ease-out'  onClick={(()=>{
+        checkout({
+          lineItems:[
+            {
+              price :"price_1LYW5FSFaA8RFM1OV9Gu2iNe",
+              quantity : {getData}
+            }
+          ]
+        })
+       })}>Checkout</button><br></br>
       </div>
       
       </div>
