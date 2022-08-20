@@ -3,15 +3,14 @@ import {useState} from 'react'
 import {checkout} from "../checkout"
 
 
-function Pricecalc({price}) {
+function Pricecalc({price,apiPrice}) {
 const [data , setData] = useState(null);
 const[print ,setPrint] =useState(false);
 function getData (val){
     setData(val.target.value)
     setPrint(false)
 }
-    
-  return (
+return (
     <div className='mx-auto lg:w-3/5 '>
      <div className=' py-14 p-8 rounded-bl-md rounded-br-md lg:rounded-bl-none 
         lg:rounded-tr-md font-semibold  '>
@@ -33,16 +32,17 @@ function getData (val){
      
      <button className=' text-sm text-white bg-red-400 px-4 py-2
        rounded-lg mt-5 cursor-pointer hover:scale-105 transform
-       transition duration-300 ease-out'  onClick={(()=>{
+       transition duration-300 ease-out'  onClick={(() => {
         checkout({
-          lineItems:[
+          lineItems: [
             {
-              price :"price_1LYW5FSFaA8RFM1OV9Gu2iNe",
-              quantity : {getData}
+              price: String(`${apiPrice}`),
+             
+              quantity: parseInt(`${data}`)
             }
           ]
         })
-       })}>Checkout</button><br></br>
+      })}>Checkout</button><br></br>
       </div>
       
       </div>

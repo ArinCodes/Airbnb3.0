@@ -6,7 +6,7 @@ import Footer from "../../components/Footer"
 import Contact from "../../components/Contact";
 import Pricecalc from "../../components/Pricecalc";
 
- const Post=({ownername,ownimage,contact, address,price,propimg,content,title})=> {
+ const Post=({ownername,ownimage,contact, address,price,propimg,content,title,apiPrice})=> {
  
 
     return (
@@ -24,7 +24,7 @@ import Pricecalc from "../../components/Pricecalc";
        />
          <Pricecalc
          price={price}
-         
+         apiPrice={apiPrice}
          
          />
     </div>
@@ -64,6 +64,7 @@ const query =encodeURIComponent(`*[_type == "detail" && slug.current=="${pageSlu
             propimg:lamp.propimg,
             content:lamp.content,
             title:lamp.title,
+            apiPrice:lamp.apiPrice
             }
         }
     }
