@@ -8,8 +8,8 @@ function Map({searchResults}) {
   //Transform the searchResults object into lattitude and longitude object
   //{latitude :'' , longitude:''}
   const coordinates =searchResults.map((result) =>({
-    longitude :result.long,
-    latitude:result.lat,
+    longitude :result.longitude,
+    latitude:result.latitude,
   }))
 
  const center = getCenter(coordinates);
@@ -29,10 +29,10 @@ function Map({searchResults}) {
     {...viewport}
     onMove={evt => setViewport(evt.viewport)}>
     {searchResults.map((result) => (
-      <div key={result.long}>
+      <div key={result.longitude}>
         <Marker
-        longitude={result.long}
-        latitude={result.lat}
+        longitude={result.longitude}
+        latitude={result.latitude}
         offsetLeft={-20}
         offsetTop={-10}
         
@@ -50,9 +50,9 @@ function Map({searchResults}) {
         {SelectedLocation.longitude=== result.longitude ? (
           <Popup
           onClose={() => setSelectedLocation({})}
-          closeOnClick={true}
-          latitude={result.lat}
-          longitude={result.long}
+          closeOnClick={false}
+          latitude={result.latitude}
+          longitude={result.longitude}
           >
             {result.title}
           </Popup>

@@ -69,7 +69,7 @@ export default Search;
 
 export async function getServerSideProps(){
  
-const searchResults =await fetch("https://links.papareact.com/isz").
+const searchResults =await fetch("https://arincodes.github.io/airbnbdata/map.json").
 then(res => res.json());
 const query = `*[_type == "detail"]{
   _id,

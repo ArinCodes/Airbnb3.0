@@ -72,11 +72,11 @@ lg:grid-cols-3 xl:grid-cols-4">
   );
 }
 export async function getStaticProps(){
-  const exploreData =await fetch("https://links.papareact.com/pyp").
+  const exploreData =await fetch("https://arincodes.github.io/airbnbdata/smallcard.json").
   then(
    (res)=> res.json()
   );
-  const cardsData = await fetch("https://links.papareact.com/zp1").
+  const cardsData = await fetch("https://arincodes.github.io/airbnbdata/largecard.json").
   then(
     (res)=>res.json()
   );
